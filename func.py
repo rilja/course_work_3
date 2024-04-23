@@ -18,6 +18,15 @@ def last_executed_transactions_dates(transactions_count=5):
         last_transactions_dates.append(date)
     last_transactions_dates.sort(reverse=True)
 
-    return last_transactions_dates[0:transactions_count+1]
+    return last_transactions_dates[0:transactions_count]
+
+def last_executed_transactions():
+    last_executed_transactions_list = []
+    for data in last_executed_transactions_dates():
+        for transaction in load_executed_transactions_list():
+            if transaction.get("date") == data:
+                last_executed_transactions_list.append(transaction)
+
+    return last_executed_transactions_list
 
 
