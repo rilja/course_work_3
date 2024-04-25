@@ -12,3 +12,6 @@ class Transaction:
         correct_date = datetime.datetime.strptime(self.transaction_date, "%Y-%m-%dT%H:%M:%S.%f")
         return correct_date.strftime('%d.%m.%Y')
 
+    def transaction_description(self):
+        transaction_description = self.full_transaction_info.get("description")
+        return transaction_description
