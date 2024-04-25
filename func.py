@@ -20,13 +20,13 @@ def last_executed_transactions_dates(transactions_count=5):
 
     return last_transactions_dates[0:transactions_count]
 
-def last_executed_transactions():
-    last_executed_transactions_list = []
-    for data in last_executed_transactions_dates():
-        for transaction in load_executed_transactions_list():
-            if transaction.get("date") == data:
-                last_executed_transactions_list.append(transaction)
 
-    return last_executed_transactions_list
+def full_transactions_from_date(date_and_time):
+    for transaction in load_executed_transactions_list():
+        if transaction.get("date") == date_and_time:
+            full_transaction_info = transaction
+
+    return full_transaction_info
 
 
+print(full_transactions_from_date('2019-11-19T09:22:25.899614'))
