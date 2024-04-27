@@ -19,7 +19,9 @@ class Transaction:
     def from_account_info(self):
         from_account_info = self.full_transaction_info.get("from")
         if from_account_info is None:
-            return f''
+            return f''      #if no from information
+
+        #split txt from card/account numbers
         txt_in_info = from_account_info.split()
         card_name = []
         for txt in txt_in_info:
@@ -27,11 +29,14 @@ class Transaction:
                 card_number = txt
             else:
                 card_name.append(txt)
+
+        #numbers secreting un spliting by 4 digits
         secret_card_number = list(card_number)
         for num in range(6, 12):
             secret_card_number[num] = "*"
         for num in range(4, 20, 5):
             secret_card_number.insert(num, " ")
+
         secret_card_number = ''.join(secret_card_number)
         full_card_name = ' '.join(card_name)
         new_from_account_info = full_card_name + " " + secret_card_number
@@ -40,6 +45,8 @@ class Transaction:
 
     def to_account_info(self):
         to_account_info = self.full_transaction_info.get("to")
+
+        # split txt from card/account numbers
         txt_in_info = to_account_info.split()
         card_name = []
         for txt in txt_in_info:
@@ -47,6 +54,8 @@ class Transaction:
                 card_number = txt
             else:
                 card_name.append(txt)
+
+        # numbers secreting un shortening
         short_card_number = []
         for i in range(-1, -5, -1):
             short_card_number.insert(0, card_number[i])
