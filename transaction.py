@@ -63,3 +63,9 @@ class Transaction:
 
         return transaction_amount_and_currency
 
+    def __repr__(self):
+        return f"Transation ('{self.full_transaction_info}')"
+
+    def __str__(self):
+        return f"Transation on date: {self.transaction_date}"
+
