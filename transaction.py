@@ -38,4 +38,21 @@ class Transaction:
 
         return new_from_account_info
 
+    def to_account_info(self):
+        to_account_info = self.full_transaction_info.get("to")
+        txt_in_info = to_account_info.split()
+        card_name = []
+        for txt in txt_in_info:
+            if txt.isdigit():
+                card_number = txt
+            else:
+                card_name.append(txt)
+        short_card_number = []
+        for i in range(-1, -5, -1):
+            short_card_number.insert(0, card_number[i])
+        secret_card_number = "**" + ''.join(short_card_number)
+        full_card_name = ' '.join(card_name)
+        new_to_account_info = full_card_name + " " + secret_card_number
+
+        return new_to_account_info
 

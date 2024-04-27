@@ -28,5 +28,3 @@ def full_transactions_from_date(date_and_time):
 
     return full_transaction_info
 
-
-print(full_transactions_from_date('2019-11-19T09:22:25.899614'))
