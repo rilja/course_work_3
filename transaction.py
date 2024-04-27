@@ -30,7 +30,7 @@ class Transaction:
         secret_card_number = list(card_number)
         for num in range(6, 12):
             secret_card_number[num] = "*"
-        for num in range(4, 16, 5):
+        for num in range(4, 20, 5):
             secret_card_number.insert(num, " ")
         secret_card_number = ''.join(secret_card_number)
         full_card_name = ' '.join(card_name)
@@ -62,10 +62,4 @@ class Transaction:
         transaction_amount_and_currency = transaction_amount + " " + transaction_currency
 
         return transaction_amount_and_currency
-
-
-t1 = Transaction('2019-07-03T18:35:29.512364')
-print(t1.transaction_amount_and_currency())
-
-
 
