@@ -56,3 +56,16 @@ class Transaction:
 
         return new_to_account_info
 
+    def transaction_amount_and_currency(self):
+        transaction_amount = self.full_transaction_info.get("operationAmount").get('amount')
+        transaction_currency = self.full_transaction_info.get("operationAmount").get('currency').get('name')
+        transaction_amount_and_currency = transaction_amount + " " + transaction_currency
+
+        return transaction_amount_and_currency
+
+
+t1 = Transaction('2019-07-03T18:35:29.512364')
+print(t1.transaction_amount_and_currency())
+
+
+
