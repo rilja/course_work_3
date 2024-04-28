@@ -7,7 +7,7 @@ def test_load_executed_transactions_list():
 
 
 def test_last_executed_transactions_dates():
-    last_date = last_executed_transactions_dates(1)
+    last_date = get_last_executed_transactions_dates(1)
     new_last_date = time.strptime(last_date[0], "%Y-%m-%dT%H:%M:%S.%f")
     for transaction in load_executed_transactions_list():
         transaction_date = transaction.get('date')
@@ -22,6 +22,6 @@ def test_last_executed_transactions_dates():
 
 
 def test_full_transactions_from_date():
-    assert full_transactions_from_date("2019-08-26T10:50:58.294041") == load_executed_transactions_list()[0]
-    assert full_transactions_from_date("2019-07-03T18:35:29.512364") == load_executed_transactions_list()[1]
-    assert full_transactions_from_date("2018-06-30T02:08:58.425572") == load_executed_transactions_list()[2]
+    assert get_full_transactions_from_date("2019-08-26T10:50:58.294041") == load_executed_transactions_list()[0]
+    assert get_full_transactions_from_date("2019-07-03T18:35:29.512364") == load_executed_transactions_list()[1]
+    assert get_full_transactions_from_date("2018-06-30T02:08:58.425572") == load_executed_transactions_list()[2]
