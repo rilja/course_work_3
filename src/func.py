@@ -30,4 +30,3 @@ def full_transactions_from_date(date_and_time):
             full_transaction_info = transaction
 
     return full_transaction_info
-
