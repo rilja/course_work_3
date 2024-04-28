@@ -12,7 +12,7 @@ def load_executed_transactions_list():
     return executed_transactions_list
 
 
-def last_executed_transactions_dates(transactions_count=5):
+def get_last_executed_transactions_dates(transactions_count=5):
     '''returns the desired number of dates(5 as default) of the last completed transactions'''
     last_transactions_dates = []
     for transaction in load_executed_transactions_list():
@@ -23,7 +23,7 @@ def last_executed_transactions_dates(transactions_count=5):
     return last_transactions_dates[0:transactions_count]
 
 
-def full_transactions_from_date(date_and_time):
+def get_full_transactions_from_date(date_and_time):
     '''returns full info about transaction by date'''
     for transaction in load_executed_transactions_list():
         if transaction.get("date") == date_and_time:
